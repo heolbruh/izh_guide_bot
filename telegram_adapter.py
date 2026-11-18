@@ -23,7 +23,40 @@ def _make_keyboard(buttons: list[tuple[str, str]]) -> types.InlineKeyboardMarkup
     return kb
 
 
-def _safe_edit(call: types.CallbackQuery, text: str, keyboard):
+def _safe_edit(call: types.CallbackQuery, text: str, keyboard, photo_url: str = None):
+    """Редактирует сообщение. Если есть фото — пытается заменить на фото."""
+    if photo_url:
+        try:
+            bot.edit_message_media(
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id,
+                media=types.InputMediaPhoto(media=photo_url, caption=text, parse_mode="HTML"),
+                reply_markup=keyboard,
+            )
+            return
+        except ApiTelegramException as e:
+            # Если не удалось отредактировать (например, сообщение было текстовым), шлем новое
+            logger.warning("Не удалось отредактировать на фото, отправляем новое: %s", e)
+            try:
+                bot.send_photo(
+                    chat_id=call.message.chat.id,
+                    photo=photo_url,
+                    caption=text,
+                    reply_markup=keyboard,
+                    parse_mode="HTML",
+                )
+                # Удаляем старое сообщение, чтобы не было дублей
+                try:
+                    bot.delete_message(call.message.chat.id, call.message.message_id)
+                except Exception:
+                    pass
+                return
+            except Exception as send_err:
+                logger.error("Не удалось отправить фото: %s", send_err)
+                # fallback — отправляем просто текст
+                pass
+
+    # Если фото нет или не удалось — редактируем текст
     try:
         bot.edit_message_text(
             text,
@@ -85,7 +118,7 @@ def handle_callback(call: types.CallbackQuery):
             bot.answer_callback_query(call.id, "Неизвестная команда")
             return
 
-        _safe_edit(call, screen["text"], _make_keyboard(screen["buttons"]))
+        _safe_edit(call, screen["text"], _make_keyboard(screen["buttons"]), screen.get("photo"))
         bot.answer_callback_query(call.id)
 
     except Exception:
@@ -106,4 +139,3 @@ def handle_other(message: types.Message):
 def run():
     logger.info("Telegram-бот запущен...")
     bot.infinity_polling(skip_pending=True)
-
