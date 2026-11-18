@@ -24,50 +24,91 @@ def _make_keyboard(buttons: list[tuple[str, str]]) -> types.InlineKeyboardMarkup
 
 
 def _safe_edit(call: types.CallbackQuery, text: str, keyboard, photo_url: str = None):
-    """Редактирует сообщение. Если есть фото — пытается заменить на фото."""
+    """
+    Умное редактирование: если текущее сообщение не совпадает по типу (текст/фото) 
+    с тем, что мы хотим показать, мы удаляем старое и отправляем новое.
+    """
+    chat_id = call.message.chat.id
+    message_id = call.message.message_id
+    
+    # Определяем, есть ли фото в ТЕКУЩЕМ сообщении
+    current_has_photo = call.message.content_type in ['photo', 'video']
+    
+    # Сценарий 1: Мы хотим показать ФОТО
     if photo_url:
-        try:
-            bot.edit_message_media(
-                chat_id=call.message.chat.id,
-                message_id=call.message.message_id,
-                media=types.InputMediaPhoto(media=photo_url, caption=text, parse_mode="HTML"),
-                reply_markup=keyboard,
-            )
-            return
-        except ApiTelegramException as e:
-            # Если не удалось отредактировать (например, сообщение было текстовым), шлем новое
-            logger.warning("Не удалось отредактировать на фото, отправляем новое: %s", e)
+        if current_has_photo:
+            # Текущее сообщение уже с фото — пытаемся просто заменить медиа
             try:
-                bot.send_photo(
-                    chat_id=call.message.chat.id,
-                    photo=photo_url,
-                    caption=text,
+                bot.edit_message_media(
+                    chat_id=chat_id,
+                    message_id=message_id,
+                    media=types.InputMediaPhoto(media=photo_url, caption=text, parse_mode="HTML"),
                     reply_markup=keyboard,
-                    parse_mode="HTML",
                 )
-                # Удаляем старое сообщение, чтобы не было дублей
-                try:
-                    bot.delete_message(call.message.chat.id, call.message.message_id)
-                except Exception:
-                    pass
                 return
-            except Exception as send_err:
-                logger.error("Не удалось отправить фото: %s", send_err)
-                # fallback — отправляем просто текст
+            except ApiTelegramException as e:
+                # Если фото такое же или ошибка API, отправляем новое
+                logger.warning("Не удалось обновить фото (возможно, оно не изменилось): %s", e)
+        
+        # Если текущее сообщение текстовое или обновить не удалось — шлем новое фото
+        try:
+            bot.send_photo(
+                chat_id=chat_id,
+                photo=photo_url,
+                caption=text,
+                reply_markup=keyboard,
+                parse_mode="HTML",
+            )
+            # Удаляем старое сообщение
+            try:
+                bot.delete_message(chat_id, message_id)
+            except:
                 pass
+            return
+        except Exception as send_err:
+            logger.error("Не удалось отправить фото: %s", send_err)
+            # Если фото битое, отправим просто текст (fallback ниже)
 
-    # Если фото нет или не удалось — редактируем текст
-    try:
-        bot.edit_message_text(
-            text,
-            chat_id=call.message.chat.id,
-            message_id=call.message.message_id,
-            reply_markup=keyboard,
-            disable_web_page_preview=False,
-        )
-    except ApiTelegramException as e:
-        if "message is not modified" not in str(e):
-            raise
+    # Сценарий 2: Мы хотим показать ТЕКСТ
+    if current_has_photo:
+        # Текущее сообщение с фото, а мы хотим текст. 
+        # Редактировать фото на текст НЕЛЬЗЯ. Отправляем новое сообщение и удаляем старое.
+        try:
+            bot.send_message(
+                chat_id,
+                text,
+                reply_markup=keyboard,
+                disable_web_page_preview=False,
+            )
+            try:
+                bot.delete_message(chat_id, message_id)
+            except:
+                pass
+            return
+        except Exception as e:
+            logger.error("Ошибка при отправке нового текста: %s", e)
+    
+    else:
+        # Текущее сообщение текстовое, и мы хотим текст. 
+        # Пытаемся отредактировать.
+        try:
+            bot.edit_message_text(
+                text,
+                chat_id=chat_id,
+                message_id=message_id,
+                reply_markup=keyboard,
+                disable_web_page_preview=False,
+            )
+        except ApiTelegramException as e:
+            error_msg = str(e)
+            if "message is not modified" in error_msg:
+                pass # Текст не изменился, всё ок
+            elif "message to edit not found" in error_msg:
+                # Сообщение удалили, шлем новое
+                bot.send_message(chat_id, text, reply_markup=keyboard)
+            else:
+                # Другая ошибка API (например, битый HTML)
+                logger.error("Ошибка API при редактировании текста: %s", e)
 
 
 @bot.message_handler(commands=["start"])
@@ -122,7 +163,7 @@ def handle_callback(call: types.CallbackQuery):
         bot.answer_callback_query(call.id)
 
     except Exception:
-        logger.exception("Ошибка в callback")
+        logger.exception("Критическая ошибка в callback")
         bot.answer_callback_query(call.id, "Произошла ошибка, попробуйте ещё раз")
 
 
