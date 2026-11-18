@@ -23,18 +23,20 @@ def get_screen(path: list[str]) -> dict:
     {
         "text": "...",
         "buttons": [(title, callback_data), ...],
+        "photo": "url" | None,
         "is_card": bool,
     }
     """
     node = resolve_path(path)
     if node is None:
-        return {"text": "Раздел не найден", "buttons": [], "is_card": False}
+        return {"text": "Раздел не найден", "buttons": [], "photo": None, "is_card": False}
 
     # Лист — карточка с текстом
     if isinstance(node, dict) and "text" in node:
         return {
             "text": node["text"],
             "buttons": _back_buttons(path),
+            "photo": node.get("photo"),
             "is_card": True,
         }
 
@@ -45,6 +47,7 @@ def get_screen(path: list[str]) -> dict:
             return {
                 "text": child["text"],
                 "buttons": _back_buttons(path),
+                "photo": child.get("photo"),
                 "is_card": True,
             }
 
@@ -57,6 +60,7 @@ def get_screen(path: list[str]) -> dict:
     return {
         "text": f"{node.get('title', '')}\n\nВыберите:".strip(),
         "buttons": buttons,
+        "photo": node.get("photo"),
         "is_card": False,
     }
 
@@ -75,6 +79,7 @@ def get_main_menu() -> dict:
             ("🗺 Маршруты", "item:routes:info"),
             ("ℹ️ Помощь", "help"),
         ],
+        "photo": None,
         "is_card": False,
     }
 
@@ -85,6 +90,7 @@ def get_welcome_screen() -> dict:
     return {
         "text": WELCOME_TEXT,
         "buttons": menu["buttons"],
+        "photo": None,
         "is_card": False,
     }
 
@@ -93,6 +99,7 @@ def get_help_screen() -> dict:
     return {
         "text": HELP_TEXT,
         "buttons": [("🏠 В меню", "menu")],
+        "photo": None,
         "is_card": True,
     }
 
