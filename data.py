@@ -489,7 +489,7 @@ DATA = {
                         "items": {
                             "history_metal": {
                                 "title": "🚶 Ижевск — история в металле и камне",
-                                "photo": "https://visitudmurtia.org/recovered-assets/98c481ba5822274c103f4b93.webp", # <-- ФОТО ЗДЕСЬ
+                                "photo": "https://cdn.profile.ru/wp-content/uploads/2019/09/shutterstock_776535199.jpg", # <-- ФОТО ЗДЕСЬ
                                 "text": (
                                     "🚶 <b>Ижевск — история в металле и камне</b>\n\n"
                                     "🕒 <b>Время:</b> 2 часа\n"
