@@ -485,7 +485,7 @@ DATA = {
                 "items": {
                     "walking": {
                         "title": "🚶 Пешие",
-                        "photo": "https://avatars.mds.yandex.net/i?id=499d3650a8db86eb354b74d1fdbcf5a6_l-16453054-images-thumbs&n=13",
+                        "photo": "https://visitudmurtia.org/recovered-assets/98c481ba5822274c103f4b93.webp",
                         "items": {
                             "history_metal": {
                                 "title": "🚶 Ижевск — история в металле и камне",
@@ -508,7 +508,7 @@ DATA = {
                     },
                     "one_day": {
                         "title": "🚌 Однодневные",
-                        "photo": "https://resize.tripster.ru/ZLEUEPTXPoH79LQLylMRsS00YBk=/fit-in/1080x810/filters:no_upscale()/https://cdn.tripster.ru/photos/1acb6658-aa6c-4d6f-858a-d30078c04350.jpg",
+                        "photo": "https://ic.pics.livejournal.com/zdorovs/16627846/1959166/1959166_original.jpg",
                         "items": {
                             "kama_region": {
                                 "title": "🚌 Воткинск и Сарапул: Прикамская губерния",
