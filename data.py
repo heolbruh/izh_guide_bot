@@ -298,7 +298,7 @@ DATA = {
                 "items": {
                     "skyfly": {
                         "title": "🪂 Аэротруба SkyFly",
-                        "photo": "https://cdn1.flamp.ru/482454cc0fc85973bc0a11fc8d94a538.JPG",
+                        "photo": "https://avatars.mds.yandex.net/i?id=d81e28f1baeb53d74fa12a759212a8f8_l-10464870-images-thumbs&n=13",
                         "text": (
                             "🪂 <b>Аэротруба SkyFly</b>\n"
                             "📍 ул. Орджоникидзе, 1Б\n\n"
@@ -328,7 +328,7 @@ DATA = {
                         "items": {
                             "filarmonia": {
                                 "title": "🎵 Удмуртская государственная филармония",
-                                "photo": "https://cdn.culture.ru/images/06792fdb-32d8-5215-8cf7-c835617fb4fd",
+                                "photo": "https://glazovlib.ru/wp-content/uploads/2023/08/00b.jpg",
                                 "text": (
                                     "🎵 <b>Удмуртская государственная филармония</b>\n"
                                     "📍 ул. Пушкинская, 245\n\n"
@@ -366,7 +366,7 @@ DATA = {
                         "items": {
                             "club": {
                                 "title": "🎤 Стендап-клуб",
-                                "photo": "https://s3.afisha.ru/mediastorage/83/12/2623e8560b71436985928f7f1283.webp",
+                                "photo": "https://avatars.mds.yandex.net/i?id=a4a86a915f69e0260578333dc8887562_l-9101109-images-thumbs&n=13",
                                 "text": (
                                     "🎤 <b>Стендап-клуб</b>\n\n"
                                     "Выступления комиков, открытые микрофоны и вечерние шоу в "
@@ -485,7 +485,7 @@ DATA = {
                 "items": {
                     "walking": {
                         "title": "🚶 Пешие",
-                        "photo": "https://resize.tripster.ru/hrRM45TB2EaabllGCcdsPkIMsLM=/fit-in/1200x1000/filters:no_upscale()/https://cdn.tripster.ru/photos/7a9ecaa9-a20e-436f-8165-d14a9f560012.jpg",
+                        "photo": "https://avatars.mds.yandex.net/i?id=499d3650a8db86eb354b74d1fdbcf5a6_l-16453054-images-thumbs&n=13",
                         "items": {
                             "history_metal": {
                                 "title": "🚶 Ижевск — история в металле и камне",
@@ -508,7 +508,7 @@ DATA = {
                     },
                     "one_day": {
                         "title": "🚌 Однодневные",
-                        "photo": "https://resize.tripster.ru/XnfEM85VpGk4ro93muCbBanxQDg=/fit-in/1200x1000/filters:no_upscale()/https://cdn.tripster.ru/photos/120ffe2b-be2a-418f-b72e-77f6072d702a.jpg",
+                        "photo": "https://resize.tripster.ru/ZLEUEPTXPoH79LQLylMRsS00YBk=/fit-in/1080x810/filters:no_upscale()/https://cdn.tripster.ru/photos/1acb6658-aa6c-4d6f-858a-d30078c04350.jpg",
                         "items": {
                             "kama_region": {
                                 "title": "🚌 Воткинск и Сарапул: Прикамская губерния",
