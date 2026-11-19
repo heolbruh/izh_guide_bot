@@ -96,7 +96,7 @@ DATA = {
                         "items": {
                             "tyr_korka": {
                                 "title": "🥟 Тыр Корка",
-                                "photo": None,
+                                "photo": "https://bobrodolina.ru/upload/ui/logo-top2.png",
                                 "text": (
                                     "🥟 <b>Ресторан «Тыр Корка»</b>\n"
                                     "📍 ул. Свердлова, 4\n\n"
@@ -236,7 +236,7 @@ DATA = {
                 "items": {
                     "kirova": {
                         "title": "🌲 Парк им. С. М. Кирова",
-                        "photo": None,
+                        "photo": "https://static.tildacdn.com/tild3232-3362-4163-b766-336431353165/i.webp",
                         "text": (
                             "🌲 <b>Парк культуры и отдыха имени С. М. Кирова</b>\n\n"
                             "📍 <b>Точка на карте:</b> "
@@ -263,7 +263,7 @@ DATA = {
                 "items": {
                     "cinema5": {
                         "title": "🎬 Синема 5",
-                        "photo": None,
+                        "photo": "https://avatars.mds.yandex.net/get-altay/20410725/2a0000019dc4ebd44eeeff5e9ede92867d96/XXXL",
                         "text": (
                             "🎬 <b>Синема 5</b>\n"
                             "📍 ул. Удмуртская, 255Л, ТРЦ «Мой Порт»\n\n"
@@ -277,7 +277,7 @@ DATA = {
                     },
                     "udmteatr": {
                         "title": "🎭 Государственный национальный театр УР",
-                        "photo": None,
+                        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/National_Theater_of_the_Udmurt_Republic-2.jpg/960px-National_Theater_of_the_Udmurt_Republic-2.jpg",
                         "text": (
                             "🎭 <b>Государственный национальный театр Удмуртской "
                             "Республики</b>\n"
@@ -298,7 +298,7 @@ DATA = {
                 "items": {
                     "skyfly": {
                         "title": "🪂 Аэротруба SkyFly",
-                        "photo": None,
+                        "photo": "https://cdn1.flamp.ru/482454cc0fc85973bc0a11fc8d94a538.JPG",
                         "text": (
                             "🪂 <b>Аэротруба SkyFly</b>\n"
                             "📍 ул. Орджоникидзе, 1Б\n\n"
@@ -328,7 +328,7 @@ DATA = {
                         "items": {
                             "filarmonia": {
                                 "title": "🎵 Удмуртская государственная филармония",
-                                "photo": None,
+                                "photo": "https://cdn.culture.ru/images/06792fdb-32d8-5215-8cf7-c835617fb4fd",
                                 "text": (
                                     "🎵 <b>Удмуртская государственная филармония</b>\n"
                                     "📍 ул. Пушкинская, 245\n\n"
@@ -347,7 +347,7 @@ DATA = {
                         "items": {
                             "opera": {
                                 "title": "🎭 Театр оперы и балета им. П.И. Чайковского",
-                                "photo": None,
+                                "photo": "https://balletopedia.ru/wp-content/uploads/2025/08/izhevsktheatre.png",
                                 "text": (
                                     "🎭 <b>Государственный театр оперы и балета Удмуртской "
                                     "Республики им. П.И. Чайковского</b>\n"
@@ -366,7 +366,7 @@ DATA = {
                         "items": {
                             "club": {
                                 "title": "🎤 Стендап-клуб",
-                                "photo": None,
+                                "photo": "https://s3.afisha.ru/mediastorage/83/12/2623e8560b71436985928f7f1283.webp",
                                 "text": (
                                     "🎤 <b>Стендап-клуб</b>\n\n"
                                     "Выступления комиков, открытые микрофоны и вечерние шоу в "
@@ -383,7 +383,7 @@ DATA = {
                         "items": {
                             "galereya": {
                                 "title": "🖼 Выставочный центр «Галерея»",
-                                "photo": None,
+                                "photo": "https://avatars.mds.yandex.net/i?id=844f39002d4ca2932fc8c68cacbb3d2a_l-5210381-images-thumbs&n=13",
                                 "text": (
                                     "🖼 <b>Выставочный центр «Галерея»</b>\n"
                                     "📍 ул. Карла Маркса, 224а\n\n"
@@ -401,7 +401,7 @@ DATA = {
                         "items": {
                             "kalashnikov": {
                                 "title": "🔫 Музей им. М.Т. Калашникова",
-                                "photo": None,
+                                "photo": "https://avatars.mds.yandex.net/i?id=82619060a286a941d6696def141c5cd4_l-4571216-images-thumbs&n=13",
                                 "text": (
                                     "🔫 <b>Музейно-выставочный комплекс стрелкового оружия "
                                     "им. М.Т. Калашникова</b>\n"
@@ -430,7 +430,7 @@ DATA = {
                 "items": {
                     "tourist_info": {
                         "title": "🗺 Туристические инфо-центры",
-                        "photo": None,
+                        "photo": "https://iv.kommersant.ru/Issues.photo/REGIONS/IZHEVSK_News/2024/05/24/KIZ_004481_00001_1_t222_114437.jpg",
                         "text": (
                             "🗺 <b>Туристические инфо-центры</b>\n\n"
                             "Туристско-информационный центр — это специализированная служба, "
@@ -463,7 +463,7 @@ DATA = {
                     },
                     "souvenirs": {
                         "title": "🎁 Сувениры",
-                        "photo": None,
+                        "photo": "https://avatars.mds.yandex.net/i?id=be92f172be01a0908b9d1303225d436f_l-5232611-images-thumbs&n=13",
                         "text": (
                             "🎁 <b>Везу из Удмуртии</b>\n"
                             "📍 ул. Карла Маркса, 244\n\n"
@@ -485,6 +485,7 @@ DATA = {
                 "items": {
                     "walking": {
                         "title": "🚶 Пешие",
+                        "photo": "https://resize.tripster.ru/hrRM45TB2EaabllGCcdsPkIMsLM=/fit-in/1200x1000/filters:no_upscale()/https://cdn.tripster.ru/photos/7a9ecaa9-a20e-436f-8165-d14a9f560012.jpg",
                         "items": {
                             "history_metal": {
                                 "title": "🚶 Ижевск — история в металле и камне",
@@ -507,6 +508,7 @@ DATA = {
                     },
                     "one_day": {
                         "title": "🚌 Однодневные",
+                        "photo": "https://resize.tripster.ru/XnfEM85VpGk4ro93muCbBanxQDg=/fit-in/1200x1000/filters:no_upscale()/https://cdn.tripster.ru/photos/120ffe2b-be2a-418f-b72e-77f6072d702a.jpg",
                         "items": {
                             "kama_region": {
                                 "title": "🚌 Воткинск и Сарапул: Прикамская губерния",
