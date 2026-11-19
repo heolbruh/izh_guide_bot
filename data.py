@@ -485,11 +485,11 @@ DATA = {
                 "items": {
                     "walking": {
                         "title": "🚶 Пешие",
-                        "photo": "https://visitudmurtia.org/recovered-assets/98c481ba5822274c103f4b93.webp",
+                        "photo": None, # Оставляем None, чтобы не конфликтовало с автопереходом
                         "items": {
                             "history_metal": {
                                 "title": "🚶 Ижевск — история в металле и камне",
-                                "photo": None,
+                                "photo": "https://visitudmurtia.org/recovered-assets/98c481ba5822274c103f4b93.webp", # <-- ФОТО ЗДЕСЬ
                                 "text": (
                                     "🚶 <b>Ижевск — история в металле и камне</b>\n\n"
                                     "🕒 <b>Время:</b> 2 часа\n"
@@ -508,11 +508,11 @@ DATA = {
                     },
                     "one_day": {
                         "title": "🚌 Однодневные",
-                        "photo": "https://ic.pics.livejournal.com/zdorovs/16627846/1959166/1959166_original.jpg",
+                        "photo": None, # Оставляем None
                         "items": {
                             "kama_region": {
                                 "title": "🚌 Воткинск и Сарапул: Прикамская губерния",
-                                "photo": None,
+                                "photo": "https://ic.pics.livejournal.com/zdorovs/16627846/1959166/1959166_original.jpg", # <-- ФОТО ЗДЕСЬ
                                 "text": (
                                     "🚌 <b>Воткинск и Сарапул: Прикамская губерния</b>\n\n"
                                     "🕒 <b>Время:</b> 8 часов\n"
